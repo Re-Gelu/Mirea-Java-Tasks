@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Random;
 
-public class mirea_java_1{ 
+public class task_1{ 
 
     public static int get_factorial(int f){
         int factorial_result = 1; 
