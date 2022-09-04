@@ -8,7 +8,8 @@
 7. Написать программу, которая с помощью метода, вычисляет факториал числа (использовать управляющую конструкцию цикла), проверить работу метода.
 8. Результаты выполнения практической работы залить через IDE в свой репозитарий и продемонстрировать преподавателю. */
 
-import java.util.Scanner;
+package Java_task_1;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -57,7 +58,7 @@ public class task_1{
         Arrays.sort(array);
         System.out.println("   Sorted random array (Random): " + Arrays.toString(array));
 
-        Scanner in = new Scanner(System.in);
+        java.util.Scanner in = new java.util.Scanner(System.in);
         System.out.print("5) Input a number: ");
         int f = in.nextInt();
         in.close();
