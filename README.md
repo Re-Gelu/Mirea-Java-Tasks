@@ -1,5 +1,5 @@
 ﻿# <div align='center'>:poop: Задания для практических занятий </div>
- # <div align='center'>[Список отметок](https://1drv.ms/x/s!Ah-XvuubJyisgZZwckc6YmOs-HFlAw?e=lnQ9hz "opk") </div>
+ # <div align='center'>[Список отметок](https://1drv.ms/x/s!Ah-XvuubJyisgZZwckc6YmOs-HFlAw?e=lnQ9hz) </div>
 ```diff
 - Я читаю этот текст и клянусь мамой, что если мне помог этот репозиторий, то я поставлю ему звездочку!
 ```
