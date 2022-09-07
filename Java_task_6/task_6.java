@@ -15,7 +15,7 @@ abstract class Shape {
     private boolean filled;
 
     Shape() {
-        System.out.println("\n[+] Shape object was created");
+        System.out.println("\n[+] Shape abstract object was created");
     }
 
     Shape(String color, boolean filled) {
