@@ -69,7 +69,6 @@ abstract class Shape {
         return "Shape object: is filled: " + this.filled + ", color: " + this.color;
     }
 }
-
 class Circle extends Shape {
     protected double radius;
 
@@ -125,127 +124,6 @@ class Circle extends Shape {
         return "Shape: circle, radius: " + this.radius;
     }
 }
-
-class Rectangle extends Shape {
-    protected double width;
-    protected double length;
-
-    Rectangle() {
-        super.set_color("blue");
-        super.set_filled(false);
-        System.out.println("[+] Rectangle object was created");
-    }
-
-    Rectangle(double width, double length) {
-        super.set_color("blue");
-        super.set_filled(false);
-        this.width = width;
-        this.length = length;
-        System.out.println("[+] Rectangle object was created");
-    }
-
-    Rectangle(double width, double length, String color, boolean filled) {
-        super.set_color("blue");
-        super.set_filled(false);
-        this.width = width;
-        this.length = length;
-        System.out.println("[+] Rectangle object was created");
-    }
-
-    // Width getter
-    double get_width() {
-        return this.width;
-    }
-
-    // Width setter
-    void set_width(double width) {
-        if (width > 0) {
-            this.width = width;
-            System.out.println("Rectangle width setted as: " + this.width);
-        } else {
-            System.out.println("Rectangle width must be > 0");
-        }
-    }
-
-    // Length getter
-    double get_length() {
-        return this.length;
-    }
-
-    // Width setter
-    void set_length(double length) {
-        if (length > 0) {
-            this.length = length;
-            System.out.println("Rectangle length setted as: " + this.length);
-        } else {
-            System.out.println("Rectangle length must be > 0");
-        }
-    }
-
-    @Override
-    double get_area() {
-        return this.length * this.width;
-    }
-
-    @Override
-    double get_perimeter() {
-        return 2 * (this.length + this.width);
-    }
-
-    @Override
-    public String toString() {
-        System.out.println(super.toString());
-        return "Shape: rectangle, length: " + this.length + ", width: " + this.width;
-    }
-}
-
-class Square extends Rectangle {
-
-    Square() {
-        super.set_color("blue");
-        super.set_filled(false);
-        System.out.println("[+] Square object was created");
-    }
-
-    Square(double side) {
-        super.set_color("blue");
-        super.set_filled(false);
-        this.width = side;
-        this.length = side;
-        System.out.println("[+] Square object was created");
-    }
-
-    Square(double side, String color, boolean filled) {
-        super.set_color("blue");
-        super.set_filled(false);
-        this.width = side;
-        this.length = side;
-        System.out.println("[+] Square object was created");
-    }
-
-    // Side getter
-    double get_side() {
-        return this.width;
-    }
-
-    // Side setter
-    void set_side(double side) {
-        if (side > 0) {
-            this.width = side;
-            this.length = side;
-            System.out.println("Square side setted as: " + this.width);
-        } else {
-            System.out.println("Square side must be > 0");
-        }
-    }
-
-    @Override
-    public String toString() {
-        System.out.println(super.toString());
-        return "Shape: square, side: " + this.width;
-    }
-}
-
 interface Movable {
     void moveUp();
 
@@ -255,7 +133,6 @@ interface Movable {
 
     void moveRight();
 }
-
 class MovablePoint implements Movable {
     private int x;
     private int y;
