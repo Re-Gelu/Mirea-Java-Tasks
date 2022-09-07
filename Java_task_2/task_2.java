@@ -50,7 +50,7 @@ class Shape {
 
     Shape(String name) {
         this.name = name;
-        System.out.println("[+] Shape object " + this.name + " was created");
+        System.out.println("\n[+] Shape object " + this.name + " was created");
     }
 
     public String toString() {
@@ -66,14 +66,14 @@ class Dog {
     Dog(String name, Integer age) {
         this.name = name;
         this.age = age;
-        System.out.println("[+] Dog object with name: " + this.name + " was created");
+        System.out.println("\n[+] Dog object with name: " + this.name + " was created");
     }
 
     // Age setter
     public void set_age(int age) {
         if (age > 0 && age < 100) {
             this.age = age;
-            System.out.println("[+] Dog age setted as: " + this.age);
+            System.out.println("Dog age setted as: " + this.age);
         }
     }
 
@@ -85,7 +85,7 @@ class Dog {
     // Name setter
     public void set_name(String name) {
         this.name = name;
-        System.out.println("[+] Dog name setted as: " + this.name);
+        System.out.println("Dog name setted as: " + this.name);
     }
 
     // Name getter
@@ -107,20 +107,20 @@ class Dog_kennel {
     private List<Dog> dog_kennel_array = new ArrayList<Dog>();
 
     {
-        System.out.println("[+] Dog kennel object was created");
+        System.out.println("\n[+] Dog kennel object was created");
     }
 
     // Add one dog 
     public void add_dog(Dog dog) {
         this.dog_kennel_array.add(dog);
-        System.out.println("[+] " + dog + ". This dog added into the dog kennel successfully");
+        System.out.println(dog + ". This dog added into the dog kennel successfully");
     }
 
     // Add many dogs
     public void add_dogs(Dog dogs[]) {
         //this.dog_kennel_array = Stream.concat(Arrays.stream(this.dog_kennel_array.toArray()), Arrays.stream(dogs)).toArray(Dog[]::new);
         this.dog_kennel_array.addAll(new ArrayList<Dog>(Arrays.asList(dogs)));
-        System.out.println("[+] Dogs: " + Arrays.toString(dogs) + " added into the dog kennel successfully");
+        System.out.println("Dogs: " + Arrays.toString(dogs) + " added into the dog kennel successfully");
     }
 
     public String toString() {
@@ -136,7 +136,7 @@ class Ball {
     Ball(int radius) {
         this.radius = radius;
         this.diametr = this.radius * 2;
-        System.out.println("[+] Ball object was created");
+        System.out.println("\n[+] Ball object was created");
     }
 
     void display_info() {
@@ -151,7 +151,7 @@ class Book {
     Book(String name, int pages) {
         this.name = name;
         this.pages = pages;
-        System.out.println("[+] Book object was created");
+        System.out.println("\n[+] Book object was created");
     }
 
     void display_info() {
