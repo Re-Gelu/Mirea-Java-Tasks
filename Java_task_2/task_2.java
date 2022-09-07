@@ -31,7 +31,7 @@ public class task_2 {
         bobik.set_age(6);
         System.out.println(bobik);
 
-        Dog dogs[] = { new Dog("Sharik", 9), new Dog("Andrei", 18), new Dog("Shushara", 3) };
+        Dog dogs[] = { new Dog("Sharik", 9), new Dog("Андрей", 18), new Dog("Shushara", 3) };
     
         // Dog kennel test
         Dog_kennel dog_kennel = new Dog_kennel();
@@ -131,15 +131,16 @@ class Dog_kennel {
 
 class Ball {
     int radius;
-    int diametr = radius * 2;
+    int diametr;
 
     Ball(int radius) {
         this.radius = radius;
+        this.diametr = this.radius * 2;
         System.out.println("[+] Ball object was created");
     }
 
     void display_info() {
-        System.out.printf("Radius: %s \tDiametr: %d\n", radius, diametr);
+        System.out.printf("Radius: %s \tDiametr: %d\n", this.radius, this.diametr);
     }
 }
 
@@ -154,6 +155,6 @@ class Book {
     }
 
     void display_info() {
-        System.out.printf("Book name: %s \tPages: %d\n", name, pages);
+        System.out.printf("Book name: %s \tPages: %d\n", this.name, this.pages);
     }
 }

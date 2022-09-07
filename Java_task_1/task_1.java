@@ -23,7 +23,7 @@ public class task_1{
         return factorial_result;
     }    
 
-    public static void main (String args[]){
+    public static void main (String args[]) {
 
         int[] array = { 1, 2, 3, 4, 5 };
         System.out.println("1) Array sum: " + Arrays.stream(array).sum());
@@ -57,11 +57,14 @@ public class task_1{
         System.out.println("   Random array (Random): " + Arrays.toString(array));
         Arrays.sort(array);
         System.out.println("   Sorted random array (Random): " + Arrays.toString(array));
-
-        java.util.Scanner in = new java.util.Scanner(System.in);
+        java.util.Scanner in = new java.util.Scanner(System.in, "ibm866");
         System.out.print("5) Input a number: ");
         int f = in.nextInt();
+        System.out.print("6) Input a text: ");
+        String text = in.next();
         in.close();
+
+        System.out.println("   Text: " + text);
 
         System.out.println("   Factorial: " + get_factorial(f));
     }
