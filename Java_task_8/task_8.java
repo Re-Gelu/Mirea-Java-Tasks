@@ -14,7 +14,8 @@ import java.io.File;
 class MyApp extends JFrame {
     int WINDOW_WIDTH = 1000;
     int WINDOW_HEIGHT = 1000;
-    String background_image_path = "";
+    String background_image_path;
+    String animation_images_path = "Java_task_8/frames/";
     int method;
 
     // Init
@@ -49,8 +50,8 @@ class MyApp extends JFrame {
         btn.addActionListener(
             new ActionListener () {
                 public void actionPerformed(ActionEvent event) {
-                    System.out.println(method);
                     method = 1;
+                    setTitle("Animation");
                     setSize(WINDOW_WIDTH + 1, WINDOW_HEIGHT);
                     setSize(WINDOW_WIDTH - 1, WINDOW_HEIGHT);
                 }
@@ -61,6 +62,10 @@ class MyApp extends JFrame {
 
     void set_background_image_path(String path) {
         this.background_image_path = path;
+    }
+
+    void set_animation_images_path(String path) {
+        this.animation_images_path = path;
     }
 
     // Paint method
@@ -76,7 +81,7 @@ class MyApp extends JFrame {
                 break;
             
             case 1:
-                animate("C:/Users/moran/Desktop/MIREA/Mirea-Java-Tasks/Java_task_8/frames", g);
+                animate(this.animation_images_path, g);
                 break;
         
             default:
@@ -179,9 +184,13 @@ class MyApp extends JFrame {
     // Start app
     public static void main(String[] args) {
         MyApp app = new MyApp();
-        if (args.length != 0) {
+        if (args.length == 1) {
             app.set_background_image_path(args[0]);
-        } else {
+        } 
+        else if (args.length == 2) {
+            app.set_animation_images_path(args[1]);
+        }
+        else {
             System.out.println("[!] Background image path is empty");
         }
         /* "C:/Users/moran/Desktop/MIREA/Mirea-Java-Tasks/Java_task_8/background.jpg" */
