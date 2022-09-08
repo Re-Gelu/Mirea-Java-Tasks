@@ -30,19 +30,6 @@ class MyApp extends JFrame {
 
         this.method = 0;
 
-        // Lbl with mouse pos
-        JLabel lbl = new JLabel("");
-        lbl.setSize(100, 50);
-        lbl.setLocation(0, WINDOW_HEIGHT - 80);
-        addMouseListener(new MouseListener() {
-            public void mouseExited(MouseEvent a) {}
-            public void mouseClicked(MouseEvent a) {lbl.setText("X="+a.getX()+" Y="+a.getY());}
-            public void mouseEntered(MouseEvent a) {}
-            public void mouseReleased(MouseEvent a) {}
-            public void mousePressed(MouseEvent a) {}
-        });
-        add(lbl);
-
         // Btn start animation
         Button btn = new Button("Start animation");
         btn.setSize(200, 100);
@@ -188,6 +175,7 @@ class MyApp extends JFrame {
             app.set_background_image_path(args[0]);
         } 
         else if (args.length == 2) {
+            app.set_background_image_path(args[0]);
             app.set_animation_images_path(args[1]);
         }
         else {

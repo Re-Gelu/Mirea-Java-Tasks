@@ -16,7 +16,7 @@
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "args": "C:/Users/moran/Desktop/MIREA/Mirea-Java-Tasks/Java_task_8/background.jpg"
+            "args": "Java_task_8/background.jpg Java_task_8/frames/"
         },
         {
             "type": "java",
