@@ -1,0 +1,71 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch task_8",
+            "request": "launch",
+            "mainClass": "Java_task_8.task_8",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": "C:/Users/moran/Desktop/MIREA/Mirea-Java-Tasks/Java_task_8/background.jpg"
+        },
+        {
+            "type": "java",
+            "name": "Launch task_1",
+            "request": "launch",
+            "mainClass": "Java_task_1.task_1",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch task_2",
+            "request": "launch",
+            "mainClass": "Java_task_2.task_2",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch task_3",
+            "request": "launch",
+            "mainClass": "Java_task_3.task_3",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch task_4",
+            "request": "launch",
+            "mainClass": "Java_task_4.task_4",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch task_5",
+            "request": "launch",
+            "mainClass": "Java_task_5.task_5",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch task_7",
+            "request": "launch",
+            "mainClass": "Java_task_7.task_7",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyApp",
+            "request": "launch",
+            "mainClass": "Java_task_8.MyApp",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
+        }
+    ]
+}

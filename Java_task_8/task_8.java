@@ -6,35 +6,87 @@
 package Java_task_8;
 
 import java.awt.*;
-//import java.awt.event.*;
+import java.awt.event.*;
 import javax.swing.*;
+import java.io.File;
 
 // App class
 class MyApp extends JFrame {
-    JLabel lbl = new JLabel("");
     int WINDOW_WIDTH = 1000;
     int WINDOW_HEIGHT = 1000;
+    String background_image_path = "";
+    int method;
 
     // Init
     MyApp() {
-        super("My app");
+        super("Some shapes");
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        setLayout(new BorderLayout());
+        setLocation(300, 300);
+        setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setBackground(Color.white);
+
+        this.method = 0;
+
+        // Lbl with mouse pos
+        JLabel lbl = new JLabel("");
+        lbl.setSize(100, 50);
+        lbl.setLocation(0, WINDOW_HEIGHT - 80);
+        addMouseListener(new MouseListener() {
+            public void mouseExited(MouseEvent a) {}
+            public void mouseClicked(MouseEvent a) {lbl.setText("X="+a.getX()+" Y="+a.getY());}
+            public void mouseEntered(MouseEvent a) {}
+            public void mouseReleased(MouseEvent a) {}
+            public void mousePressed(MouseEvent a) {}
+        });
+        add(lbl);
+
+        // Btn start animation
+        Button btn = new Button("Start animation");
+        btn.setSize(200, 100);
+        btn.setLocation(0, 0);
+        btn.addActionListener(
+            new ActionListener () {
+                public void actionPerformed(ActionEvent event) {
+                    System.out.println(method);
+                    method = 1;
+                    setSize(WINDOW_WIDTH + 1, WINDOW_HEIGHT);
+                    setSize(WINDOW_WIDTH - 1, WINDOW_HEIGHT);
+                }
+            }
+        );
+        add(btn);
+    }
+
+    void set_background_image_path(String path) {
+        this.background_image_path = path;
     }
 
     // Paint method
     @Override
     public void paint(Graphics g2) {
         Graphics2D g = (Graphics2D) g2;
-        random_shapes_paint(20, g);
+        Image img = Toolkit.getDefaultToolkit().getImage(this.background_image_path);
+        g.drawImage(img, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+
+        switch (this.method) {
+            case 0:
+                random_shapes_paint(50, g);
+                break;
+            
+            case 1:
+                animate("C:/Users/moran/Desktop/MIREA/Mirea-Java-Tasks/Java_task_8/frames", g);
+                break;
+        
+            default:
+                break;
+        }
     }
 
     // Random shapes paint methid
-    void random_shapes_paint(int max_shapes, Graphics2D g) {
-        for (int i = 0; i < max_shapes; i++) {
+    void random_shapes_paint(int shapes, Graphics2D g) {
+        for (int i = 0; i < shapes; i++) {
             int choice = (int) (Math.random() * 7);
 
             switch (choice) {
@@ -114,9 +166,24 @@ class MyApp extends JFrame {
             }
         }
     }
-    
+
+    void animate(String frames_path, Graphics2D g) {
+        File dir = new File(frames_path);
+        for (File file : dir.listFiles()) {
+            Image frame = Toolkit.getDefaultToolkit().getImage(file.getPath());
+            g.drawImage(frame, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
+            try { Thread.sleep(500); } catch (InterruptedException e) {}
+        }
+    }
+
     // Start app
     public static void main(String[] args) {
-        new MyApp();
+        MyApp app = new MyApp();
+        if (args.length != 0) {
+            app.set_background_image_path(args[0]);
+        } else {
+            System.out.println("[!] Background image path is empty");
+        }
+        /* "C:/Users/moran/Desktop/MIREA/Mirea-Java-Tasks/Java_task_8/background.jpg" */
     }
 }
