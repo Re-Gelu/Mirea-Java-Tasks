@@ -9,14 +9,14 @@ import java.util.*;
 import java.awt.*;
 //import java.awt.event.*;
 import javax.swing.*;
-
 class MyApp extends JFrame {
-    java.util.List<Shape> shapes_array = new ArrayList<Shape>();
     JLabel lbl = new JLabel("");
+    int WINDOW_WIDTH = 600;
+    int WINDOW_HEIGHT = 600;
 
     MyApp() {
         super("My app");
-        setSize(600,600);
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -24,32 +24,38 @@ class MyApp extends JFrame {
     }
 
     @Override
-    public void paint(Graphics g) {
-        Graphics2D gr2d = (Graphics2D) g;
-        gr2d.setPaint(Color.RED);
-        gr2d.drawOval((int) (Math.random() * 100), (int) (Math.random() * 100), (int) (Math.random() * 200), (int) (Math.random() * 200));
-        gr2d.setPaint(Color.YELLOW);
-        gr2d.drawRoundRect(200, 50, 200, 300, 200, 400);
-        gr2d.setPaint(Color.DARK_GRAY);
-        // Прямоугольник с закругленными краями
-        gr2d.drawRoundRect(500, 500, 70, 40, 10, 10);
-        // Фигура овал
-        gr2d.drawOval(300, 50, 300, 300);
-        // Заполненный овал
-        gr2d.fillOval(100, 50, 200, 300);
+    public void paint(Graphics g2) {
+        Graphics2D g = (Graphics2D) g2;
+        random_shapes_paint(20, g);
     }
 
-    void random_shapes_gen(int max_shapes) {
+    void random_shapes_paint(int max_shapes, Graphics2D g) {
         for (int i = 0; i < max_shapes; i++) {
-            switch ((int)(Math.random() * 2)) {
-                case 1:
-                    
-                    break;
-                
-                case 2:
+            int choice = (int) (Math.random() * 3);
 
+            switch (1) {
+                case 200:
+                    g.drawOval(
+                            (int) (Math.random() * WINDOW_WIDTH),
+                            (int) (Math.random() * WINDOW_HEIGHT),
+                            (int) (Math.random() * 200),
+                            (int) (Math.random() * 200));
                     break;
-            
+                case 222:
+                    g.draw3DRect(
+                            (int) (Math.random() * WINDOW_WIDTH),
+                            (int) (Math.random() * WINDOW_HEIGHT),
+                            (int) (Math.random() * 200),
+                            (int) (Math.random() * 200),
+                            true);
+                    break;
+                case 1:
+                    int x = (int) (Math.random() * WINDOW_WIDTH);
+                    int y = (int) (Math.random() * WINDOW_HEIGHT);
+                    g.setColor(Color.GREEN);
+                    g.drawLine(3, 3, 220, 220);
+                    g.drawArc(200, 200, 100, 200, 40, 60);
+                    break;
                 default:
                     break;
             }
