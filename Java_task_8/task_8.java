@@ -5,15 +5,17 @@
 
 package Java_task_8;
 
-import java.util.*;
 import java.awt.*;
 //import java.awt.event.*;
 import javax.swing.*;
+
+// App class
 class MyApp extends JFrame {
     JLabel lbl = new JLabel("");
-    int WINDOW_WIDTH = 600;
-    int WINDOW_HEIGHT = 600;
+    int WINDOW_WIDTH = 1000;
+    int WINDOW_HEIGHT = 1000;
 
+    // Init
     MyApp() {
         super("My app");
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -23,127 +25,98 @@ class MyApp extends JFrame {
         setBackground(Color.white);
     }
 
+    // Paint method
     @Override
     public void paint(Graphics g2) {
         Graphics2D g = (Graphics2D) g2;
         random_shapes_paint(20, g);
     }
 
+    // Random shapes paint methid
     void random_shapes_paint(int max_shapes, Graphics2D g) {
         for (int i = 0; i < max_shapes; i++) {
-            int choice = (int) (Math.random() * 3);
+            int choice = (int) (Math.random() * 7);
 
-            switch (1) {
-                case 200:
-                    g.drawOval(
-                            (int) (Math.random() * WINDOW_WIDTH),
-                            (int) (Math.random() * WINDOW_HEIGHT),
-                            (int) (Math.random() * 200),
-                            (int) (Math.random() * 200));
-                    break;
-                case 222:
-                    g.draw3DRect(
-                            (int) (Math.random() * WINDOW_WIDTH),
-                            (int) (Math.random() * WINDOW_HEIGHT),
-                            (int) (Math.random() * 200),
-                            (int) (Math.random() * 200),
-                            true);
-                    break;
+            switch (choice) {
+                
+                // Oval
                 case 1:
-                    int x = (int) (Math.random() * WINDOW_WIDTH);
-                    int y = (int) (Math.random() * WINDOW_HEIGHT);
-                    g.setColor(Color.GREEN);
-                    g.drawLine(3, 3, 220, 220);
-                    g.drawArc(200, 200, 100, 200, 40, 60);
+                    g.setColor(new Color((int) (Math.random() * 0x1000000)));
+                    g.fillOval(
+                        (int) (Math.random() * WINDOW_WIDTH),
+                        (int) (Math.random() * WINDOW_HEIGHT),
+                        (int) (Math.random() * 200),
+                        (int) (Math.random() * 200)
+                    );
                     break;
+                
+                // Rect
+                case 2:
+                    g.setColor(new Color((int) (Math.random() * 0x1000000)));
+                    g.fillRect(
+                        (int) (Math.random() * WINDOW_WIDTH),
+                        (int) (Math.random() * WINDOW_HEIGHT),
+                        (int) (Math.random() * 200),
+                        (int) (Math.random() * 200)
+                    );
+                    break;
+
+                // Line
+                case 3:
+                    g.setColor(new Color((int) (Math.random() * 0x1000000)));
+                    g.drawLine(
+                        (int) (Math.random() * WINDOW_WIDTH), 
+                        (int) (Math.random() * WINDOW_WIDTH), 
+                        (int) (Math.random() * WINDOW_HEIGHT), 
+                        (int) (Math.random() * WINDOW_HEIGHT)
+                    );
+                    break;
+
+                // Arc
+                case 4:
+                    g.setColor(new Color((int) (Math.random() * 0x1000000)));
+                    g.drawArc(
+                        (int) (Math.random() * WINDOW_WIDTH), 
+                        (int) (Math.random() * WINDOW_HEIGHT), 
+                        (int) (Math.random() * WINDOW_WIDTH), 
+                        (int) (Math.random() * WINDOW_HEIGHT),
+                        (int) (Math.random() * 360), 
+                        (int) (Math.random() * 360)
+                    );
+                    break;
+
+                // Rounded rect
+                case 5:
+                    g.setColor(new Color((int) (Math.random() * 0x1000000)));
+                    g.fillRoundRect(
+                        (int) (Math.random() * WINDOW_WIDTH), 
+                        (int) (Math.random() * WINDOW_HEIGHT), 
+                        (int) (Math.random() * 200),
+                        (int) (Math.random() * 200), 
+                        (int) (Math.random() * 200),
+                        (int) (Math.random() * 200)
+                    );
+                    break;
+
+                // Circle
+                case 6:
+                    g.setColor(new Color((int) (Math.random() * 0x1000000)));
+                    g.fillOval(
+                        (int) (Math.random() * WINDOW_WIDTH),
+                        (int) (Math.random() * WINDOW_HEIGHT),
+                        100,
+                        100
+                    );
+                    break;
+
                 default:
                     break;
             }
         }
     }
-
+    
+    // Start app
     public static void main(String[] args) {
         new MyApp();
     }
 }
-
-/* import java.awt.*;
-import java.awt.geom.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-
-public class task_8 {
-    public static void main(String[] args) {
-        paintComponent paint_component = new paintComponent();
-        paint_component.setVisible(true);
-        paint_component.setLocation(300,300);
-    }
-}
-
-class paintComponent extends JComponent {
-    @Override
-    protected void paintComponent(Graphics g) {
-        
-        // super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
-
-        // очищаем фон
-        Rectangle r = getBounds();
-        g2.setBackground(Color.white);
-        g2.clearRect(0, 0, r.width, r.height);
-
-        // выводим надпись и выводим квадрат красного цвет
-        g.setColor(Color.red);
-        g.drawString("Hello, world", 20, 20);
-        g.fillRect(60, 60, 120, 120);
-    }
-} */
-
-/* public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                new DrawShapes();
-            }
-        });
-    } */
-
-/* class DrawShapes extends JFrame {
-    
-    //private static final long serialVersionUID = 1L;
-
-    DrawShapes() {
-
-        setSize(new Dimension(320, 320));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-
-        JPanel p = new JPanel() {
-
-            @Override
-            public void paintComponent(Graphics g) {
-                Graphics2D g2 = (Graphics2D) g;
-                for (int i=0; i < 20; i++) {
-
-                }
-                g2.drawRect(3, 3, 200, 303);
-            }
-        };
-        setTitle("First AWT app");
-        this.getContentPane().add(p);
-    }
-} */
-
-
-/*
- * Shape line = new Line2D.Double(3, 3, 303, 303);
- * Shape rect = new Rectangle(3, 3, 303, 303);
- * Shape circle = new Ellipse2D.Double(100, 22, 100, 100);
- * Shape roundRect = new RoundRectangle2D.Double(20, 20, 250, 250, 5, 25);
- * g2.draw(line);
- * g2.draw(rect);
- * g2.draw(circle);
- * g2.draw(roundRect);
- */
