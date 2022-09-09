@@ -12,8 +12,8 @@ import java.io.File;
 
 // App class
 class MyApp extends JFrame {
-    int WINDOW_WIDTH = 1000;
-    int WINDOW_HEIGHT = 1000;
+    int WINDOW_WIDTH = 600;
+    int WINDOW_HEIGHT = 600;
     String background_image_path;
     String animation_images_path = "Java_task_8/frames/";
     int method;
@@ -30,7 +30,7 @@ class MyApp extends JFrame {
 
         this.method = 0;
 
-        // Btn start animation
+        // Btn "Start animation"
         Button btn = new Button("Start animation");
         btn.setSize(200, 100);
         btn.setLocation(0, 0);
