@@ -22,11 +22,11 @@ class MyApp extends JFrame {
     MyApp() {
         super("Some shapes");
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        //setBackground(Color.BLACK);
         setLocation(300, 300);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        setBackground(Color.white);
 
         this.method = 0;
 
