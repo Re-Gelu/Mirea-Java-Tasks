@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch task_10",
+            "request": "launch",
+            "mainClass": "Java_task_10.task_10",
+            "projectName": "Mirea Java_719766bc"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}",
@@ -58,7 +65,7 @@
             "name": "Launch MyApp",
             "request": "launch",
             "mainClass": "Java_task_8.MyApp",
-            "projectName": "Mirea-Java-Tasks_7572a79f",
+            "projectName": "Mirea-Java-Tasks_7572a79f"
         },
         {
             "type": "java",
