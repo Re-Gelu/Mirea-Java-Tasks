@@ -54,14 +54,7 @@
 package Java_task_10;
 
 import java.util.Scanner;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
+import java.util.*;
 public class task_10 {
 
    /* 1. Треугольная последовательность. Дана монотонная последовательность, в которой каждое натуральное число k встречается 
@@ -88,7 +81,6 @@ public class task_10 {
     сумма цифр которых равна d. Запись натурального числа не может начинаться с цифры 0. В этой задаче можно использовать 
     цикл для перебора всех цифр, стоящих на какой-либо позиции. */
   static int task_4(int len, int sum, int k, int s) {
-    // Базовый случай
     if (len == k) {
       if (sum == s) {
         return 1;
@@ -98,7 +90,6 @@ public class task_10 {
     }
     int c = (len == 0 ? 1 : 0);
     int res = 0;
-    // Шаг рекурсии / рекурсивное условие
     for (int i = c; i < 10; i++) {
       res += task_4(len + 1, sum + i, k, s);
     }
@@ -108,6 +99,24 @@ public class task_10 {
   /* 5. Сумма цифр числа. Дано натуральное число N. Вычислите сумму его цифр. При решении этой задачи нельзя использовать строки, списки, массивы (ну и циклы, разумеется). */
   static int task_5(int number) {
     return (number == 0) ? 0 : (number % 10) + task_5(number / 10);
+  }
+
+  static boolean task_6(int n, int i) {
+    // i- дополнительный параметр. При вызове должен быть равен 2
+    if (n < 2) {
+      return false;
+    }
+    else if (n == 2) {
+      return true;
+    }
+    else if (n % i == 0) {
+      return false;
+    }
+    else if (i < n / 2) {
+      return task_6(n, i + 1);
+    } else {
+      return true;
+    }
   }
 
   public static void main(String[] args) {
@@ -154,6 +163,15 @@ public class task_10 {
     System.out.print("  Введи число N: ");
     int N = scanner.nextInt();
     System.out.println("  Сумма цифр числа N: " + task_5(N));
+
+    // 6)
+    System.out.println("6) Проверка числа на простоту. Дано натуральное число n>1. Проверьте, является ли оно простым.");
+    System.out.print("  Введи число N: ");
+    N = scanner.nextInt();
+    System.out.println("  Результат: " + task_6(N, 2));
+
+    // 7)
+    System.out.println("7) Проверка числа на простоту. Дано натуральное число n>1. Проверьте, является ли оно простым.");
 
     scanner.close();
   }
